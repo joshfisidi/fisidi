@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
 type Props = {
-	app: {
+	project: {
 		url?: string;
 		title: string;
 		description: string;
@@ -13,21 +13,21 @@ type Props = {
 
 	views: number;
 };
-export const Header: React.FC<Props> = ({ app, views }) => {
+export const Header: React.FC<Props> = ({ project, views }) => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
 
 	const links: { label: string; href: string }[] = [];
-	if (app.repository) {
+	if (project.repository) {
 		links.push({
 			label: "GitHub",
-			href: `https://github.com/${app.repository}`,
+			href: `https://github.com/${project.repository}`,
 		});
 	}
-	if (app.url) {
+	if (project.url) {
 		links.push({
 			label: "Website",
-			href: app.url,
+			href: project.url,
 		});
 	}
 	useEffect(() => {
@@ -88,7 +88,7 @@ export const Header: React.FC<Props> = ({ app, views }) => {
 					</div>
 
 					<Link
-						href="/apps"
+						href="/projects"
 						className={`duration-200 hover:font-medium ${
 							isIntersecting
 								? " text-zinc-400 hover:text-zinc-100"
@@ -103,10 +103,10 @@ export const Header: React.FC<Props> = ({ app, views }) => {
 				<div className="mx-auto max-w-7xl px-6 lg:px-8 text-center flex flex-col items-center">
 					<div className="mx-auto max-w-2xl lg:mx-0">
 						<h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
-							{app.title}
+							{project.title}
 						</h1>
 						<p className="mt-6 text-lg leading-8 text-zinc-300">
-							{app.description}
+							{project.description}
 						</p>
 					</div>
 

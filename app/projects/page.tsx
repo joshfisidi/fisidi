@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { allApps } from "contentlayer/generated";
+import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
@@ -10,26 +10,26 @@ import { Eye } from "lucide-react";
 const redis = Redis.fromEnv();
 
 export const revalidate = 60;
-export default async function AppsPage() {
+export default async function ProjectsPage() {
   const views = (
     await redis.mget<number[]>(
-      ...allApps.map((p) => ["pageviews", "apps", p.slug].join(":")),
+      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
     )
   ).reduce((acc, v, i) => {
-    acc[allApps[i].slug] = v ?? 0;
+    acc[allProjects[i].slug] = v ?? 0;
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allApps.find((app) => app.slug === "unkey")!;
-  const top2 = allApps.find((app) => app.slug === "planetfall")!;
-  const top3 = allApps.find((app) => app.slug === "highstorm")!;
-  const sorted = allApps
+  const featured = allProjects.find((project) => project.slug === "unkey")!;
+  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
+  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+  const sorted = allProjects
     .filter((p) => p.published)
     .filter(
-      (app) =>
-        app.slug !== featured.slug &&
-        app.slug !== top2.slug &&
-        app.slug !== top3.slug,
+      (project) =>
+      project.slug !== featured.slug &&
+      project.slug !== top2.slug &&
+      project.slug !== top3.slug,
     )
     .sort(
       (a, b) =>
@@ -53,7 +53,7 @@ export default async function AppsPage() {
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
-            <Link href={`/apps/${featured.slug}`}>
+            <Link href={`/projects/${featured.slug}`}>
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
@@ -94,9 +94,9 @@ export default async function AppsPage() {
           </Card>
 
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
-            {[top2, top3].map((app) => (
-              <Card key={app.slug}>
-                <Article app={app} views={views[app.slug] ?? 0} />
+            {[top2, top3].map((project) => (
+              <Card key={project.slug}>
+                <Article project={project} views={views[project.slug] ?? 0} />
               </Card>
             ))}
           </div>
@@ -107,27 +107,27 @@ export default async function AppsPage() {
           <div className="grid grid-cols-1 gap-4">
             {sorted
               .filter((_, i) => i % 3 === 0)
-              .map((app) => (
-                <Card key={app.slug}>
-                  <Article app={app} views={views[app.slug] ?? 0} />
+              .map((project) => (
+                <Card key={project.slug}>
+                  <Article project={project} views={views[project.slug] ?? 0} />
                 </Card>
               ))}
           </div>
           <div className="grid grid-cols-1 gap-4">
             {sorted
               .filter((_, i) => i % 3 === 1)
-              .map((app) => (
-                <Card key={app.slug}>
-                  <Article app={app} views={views[app.slug] ?? 0} />
+              .map((project) => (
+                <Card key={project.slug}>
+                  <Article project={project} views={views[project.slug] ?? 0} />
                 </Card>
               ))}
           </div>
           <div className="grid grid-cols-1 gap-4">
             {sorted
               .filter((_, i) => i % 3 === 2)
-              .map((app) => (
-                <Card key={app.slug}>
-                  <Article app={app} views={views[app.slug] ?? 0} />
+              .map((project) => (
+                <Card key={project.slug}>
+                  <Article project={project} views={views[project.slug] ?? 0} />
                 </Card>
               ))}
           </div>

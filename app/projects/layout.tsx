@@ -1,4 +1,4 @@
-export default function AppsLayout({
+export default function ProjectsLayout({
 	children,
 }: { children: React.ReactNode }) {
 	return (

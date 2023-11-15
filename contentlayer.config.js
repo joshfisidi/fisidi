@@ -16,9 +16,9 @@ const computedFields = {
 	},
 };
 
-export const App = defineDocumentType(() => ({
-	name: "App",
-	filePathPattern: "./apps/**/*.mdx",
+export const Project = defineDocumentType(() => ({
+	name: "Project",
+	filePathPattern: "./projects/**/*.mdx",
 	contentType: "mdx",
 
 	fields: {
@@ -64,7 +64,7 @@ export const Page = defineDocumentType(() => ({
 
 export default makeSource({
 	contentDirPath: "./content",
-	documentTypes: [Page, App],
+	documentTypes: [Page, Project],
 	mdx: {
 		remarkPlugins: [remarkGfm],
 		rehypePlugins: [
