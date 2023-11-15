@@ -39,9 +39,9 @@ export default function Home() {
           <Link
             target="_blank"
             href="https://discord.gg/EyWNsA97cQ"
-            className="underline duration-500 hover:text-zinc-300"
+            className="underline duration-500 hover:text-red-400"
           >
-            Fisidi Alumni
+            Alumni
           </Link>
         </h2>
       </div>
