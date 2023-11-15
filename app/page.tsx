@@ -3,8 +3,8 @@ import React from "react";
 import Particles from "./components/particles";
 
 const navigation = [
-  { name: "Projects", href: "/apps" },
-  { name: "Contact", href: "/about" },
+  { name: "Apps", href: "/apps" },
+  { name: "About", href: "/about" },
 ];
 
 export default function Home() {
