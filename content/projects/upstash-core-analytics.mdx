@@ -5,15 +5,12 @@ date: "2023-02-13"
 url: https://console.upstash.com/ratelimit
 repository: upstash/core-analytics
 published: true
-
 ---
-
 
 This library offers some low level building blocks to record and analyze custom events in Redis.
 It's main purpose is to provide a simple way to record and query events in Redis without having to worry about the underlying data structure so we can build more advanced analytics features on top of it.
 
 ## Quickstart
-
 
 1. Create a redis database
 
@@ -22,7 +19,7 @@ a new global database.
 
 After creating the db, copy the `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to your `.env` file.
 
-3. Install `@upstash/analytics` in your project
+3. Install `@upstash/analytics` in your app
 
 ```bash
 npm install @upstash/analytics @upstash/redis
@@ -39,7 +36,6 @@ const analytics = new Analytics({
   window: "1d",
 });
 ```
-
 
 5. Ingest some events
 
@@ -59,14 +55,12 @@ await analytics.ingest("pageviews", event);
 4. Query your events
 
 ```ts
-
 const result = await analytics.query("pageviews");
-
 ```
 
 ## Development
 
-This project uses `pnpm` for dependency management.
+This app uses `pnpm` for dependency management.
 
 #### Install dependencies
 
@@ -80,21 +74,22 @@ pnpm install
 pnpm build
 ```
 
-
 ## Database Schema
 
 All metrics are stored in Redis `Hash` data types and sharded into buckets based on the `window` option.
+
 ```
 @upstash/analytics:{TABLE}:{TIMESTAMP}
 ```
-- `TABLE` is a namespace to group events together. ie for managing multiple projects int a single database
+
+- `TABLE` is a namespace to group events together. ie for managing multiple apps int a single database
 - `TIMESTAMP` is the starting timestamp of each window
 
 The field of each hash is a serialized JSON object with the user's event data and the value is the number of times this event has been recorded.
 
 ```json
 {
-  '{"page": "/auth/login","country": "DE"}': 5,
-  '{"page": "/auth/login","country": "US"}': 2
+  "{\"page\": \"/auth/login\",\"country\": \"DE\"}": 5,
+  "{\"page\": \"/auth/login\",\"country\": \"US\"}": 2
 }
 ```

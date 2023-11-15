@@ -25,8 +25,8 @@ provider "vercel" {
   token = "<YOUR_TOKEN>"
 }
 
-resource "vercel_project" "my_project" {
-  name = "project-via-terraform"
+resource "vercel_app" "my_app" {
+  name = "app-via-terraform"
   git_repository {
     type = "github"
     repo = "chronark/terraform-provider-vercel"
@@ -34,7 +34,7 @@ resource "vercel_project" "my_project" {
 }
 ```
 
-It was a fun project and I learned a lot about Terraform and Vercel's API.
+It was a fun app and I learned a lot about Terraform and Vercel's API.
 It gave me the opportunity to contribute to the Terraform ecosystem and my appreciation for the work that the Terraform team does is immense.
 
 There have been quite a few individuals and teams that have used this provider and I am happy that it has been useful to you.
