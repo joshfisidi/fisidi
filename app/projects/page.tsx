@@ -46,10 +46,10 @@ export default async function ProjectsPage() {
             Projects
           </h2>
           <p className="mt-4 text-zinc-400">
-            Community Drive Projects with a Purpose
+            Community Driven Projects with a Purpose
           </p>
         </div>
-        <div className="w-full h-px bg-zinc-800" />
+        <div className="w-full h-px bg-red-900" />
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
@@ -93,7 +93,7 @@ export default async function ProjectsPage() {
             </Link>
           </Card>
 
-          <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
+          <div className="flex flex-col w-full gap-8 mx-auto border-t border-red-900/10 lg:mx-0 lg:border-t-0 ">
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} views={views[project.slug] ?? 0} />
@@ -101,7 +101,7 @@ export default async function ProjectsPage() {
             ))}
           </div>
         </div>
-        <div className="hidden w-full h-px md:block bg-zinc-800" />
+        <div className="hidden w-full h-px md:block bg-red-900" />
 
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
           <div className="grid grid-cols-1 gap-4">
