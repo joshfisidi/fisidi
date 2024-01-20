@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="user-card pt-1 -mb-16 overflow-hidden">
     <div class="top-container flex items-start justify-center relative">
       
@@ -200,4 +200,4 @@ const handleTouchEnd = (event) => {
       border-radius: 50%; // Rounded image
     }
   }
-</style>
+</style> -->
