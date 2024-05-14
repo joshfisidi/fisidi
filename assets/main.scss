@@ -1,0 +1,12 @@
+// main.scss
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+body {
+  color: red;
+  background: #000;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased; // Moved here
+}

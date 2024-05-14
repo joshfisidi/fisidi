@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
   "typescript.tsdk": "node_modules/.pnpm/typescript@4.9.5/node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
+=======
+    "vue.codeActions.enabled": false
+>>>>>>> origin/main
 }
