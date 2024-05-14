@@ -39,7 +39,7 @@ export default function Example() {
 								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24  lg:pb-48  md:p-16"
 							>
 								<span
-									className="absolute w-px h-2/3 bg-gradient-to-b from-red-500 via-red-500/50 to-transparent"
+									className="absolute w-px h-2/3 bg-gradient-to-b from-black via-gray-500 to-transparent"
 									aria-hidden="true"
 								/>
 								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-red-900 border-zinc-500 bg-red-900 group-hover:border-zinc-200 drop-shadow-orange">

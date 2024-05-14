@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     default: "fisidi.com",
     template: "%s | fisidi.com",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "10,000 years of innovation in 100",
   openGraph: {
     title: "fisidi.com",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+      "10,000 years of innovation in 100",
     url: "https://fisidi.com",
     siteName: "fisidi.com",
     images: [
